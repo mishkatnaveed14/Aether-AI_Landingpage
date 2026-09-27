@@ -1,7 +1,9 @@
 export default function Faq() {
   return (
     <>
-      <section class="faq-section">
+      <section style={{
+        
+      }} class="faq-section">
         <div class="faq-container">
           <h2 class="section-title">FAQ Accordion</h2>
 
