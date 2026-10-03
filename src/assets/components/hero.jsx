@@ -76,7 +76,7 @@ export default function Hero() {
         </div>
         <div class="hero-grid-overlay"></div>
       </section>
-      <section class="marquee-section">
+      {/* <section class="marquee-section">
         <div class="marquee-container">
           <span class="ticker-label">Trusted By Industry Leaders</span>
           <div class="marquee-wrapper">
@@ -120,7 +120,19 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <section class="cs-marquee-section">
+      <div class="cs-marquee-container">
+        <span class="cs-ticker-tag">Trusted Learning Partners</span>
+        <div class="cs-marquee-track">
+          <div class="cs-badge-item">🚀 Vercel</div>
+          <div class="cs-badge-item">💡 GitHub</div>
+          <div class="cs-badge-item">⚡ Slack</div>
+          <div class="cs-badge-item">🐳 Docker</div>
+          <div class="cs-badge-item">✨ Supabase</div>
+        </div>
+      </div>
+    </section>
     </>
   );
 }

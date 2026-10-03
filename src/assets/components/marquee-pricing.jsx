@@ -1,9 +1,7 @@
 export default function Section2() {
   return (
     <>
-    
-
-      <section class="feature-section">
+      {/* <section class="feature-section">
         <div class="feature-container">
           <h2 class="section-title">Engineered for Velocity</h2>
 
@@ -178,7 +176,43 @@ export default function Section2() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </section> */}
+
+    <section class="cs-feature-section">
+      <div class="cs-container">
+        <div class="cs-section-header">
+          <h2>Interactive Modules & Features</h2>
+          <p>Explore modern learning spaces built for high performance.</p>
+        </div>
+
+        <div class="cs-grid">
+          {/* Card 1 */}
+          <div class="cs-card highlight-card">
+            <div class="cs-card-top">
+              <span class="cs-pill">Live Workspace</span>
+              <span class="dot-live"></span>
+            </div>
+            <h3>Real-time Code & AI Playground</h3>
+            <p>Test models and code instantly with live container environments.</p>
+            <div class="cs-mock-box">
+              <code>&gt; aether-ai@latest init --template</code>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div class="cs-card">
+            <h3>Flexible Pricing</h3>
+            <div class="cs-price">$19<span>/mo</span></div>
+            <ul class="cs-list">
+              <li>✓ Full Course Access</li>
+              <li>✓ AI Mentor Support</li>
+              <li>✓ Custom Challenges</li>
+            </ul>
+            <button class="cs-btn">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+ </>
   );
 }
