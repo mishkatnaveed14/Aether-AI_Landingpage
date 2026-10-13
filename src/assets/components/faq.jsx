@@ -1,86 +1,41 @@
+import { useState } from "react";
+
+const questions = [
+  ["How do I connect AetherAI to my existing stack?", "Use the SDK or REST API alongside your current services. You can start with one model endpoint and move workloads over without changing your application architecture."],
+  ["Which models can I use?", "AetherAI supports leading hosted models and open-weight models, including GPT-4-class, Llama, and Mistral options. Availability depends on your selected plan and region."],
+  ["Can I change plans at any time?", "Yes. Upgrade or downgrade from your workspace whenever your usage changes. Plan changes take effect on your next billing cycle."],
+  ["How is my data protected?", "Requests are encrypted in transit, and workspace access can be managed by role. Review your organization's security requirements before sending sensitive data."],
+  ["How quickly can I get started?", "Most teams can create a workspace in a few minutes. Run the quick-start command above, add your API key, and make your first request."],
+];
+
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState(0);
+
   return (
-    <>
-      <section style={{
-        
-      }} class="faq-section">
-        <div class="faq-container">
-          <h2 class="section-title">FAQ Accordion</h2>
-
-          <div class="faq-accordion-wrapper">
-            <div class="faq-item active">
-              <button class="faq-question">
-                <span>How does AetherAI integrate with existing COCO?</span>
-                <span class="faq-icon">⌄</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  AetherAI integrates seamlessly with existing COCO
-                  architectures through standard API endpoints and lightweight
-                  SDKs, allowing you to deploy models without changing your core
-                  pipeline setup.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>How does AetherAI integrate with existing CGEO?</span>
-                <span class="faq-icon">⌄</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Our platform provides specialized connectors for CGEO
-                  frameworks, automatically mapping parameters and syncing data
-                  streams with minimal configuration overhead.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>How does AetherAI integrate with existing CUE07?</span>
-                <span class="faq-icon">⌄</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  AetherAI integrates with existing CUE07 structures via robust
-                  security protocols and real-time synchronization pipelines,
-                  ensuring safe data transit and minimal latency.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>How does AetherKI integrate with existing COCO?</span>
-                <span class="faq-icon">⌄</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  The integration utilizes cross-platform adapters designed to
-                  bridge compatibility layers securely, making data sharing and
-                  model orchestration effortless.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>How does AetherAI integrate with existing COCO?</span>
-                <span class="faq-icon">⌄</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Setup can be completed in minutes using our automated CLI tool
-                  (`npx aether-ai@latest init`), mapping all dependencies and
-                  configurations instantly.
-                </p>
-              </div>
-            </div>
-          </div>
+    <section className="faq-section" id="faq">
+      <div className="faq-container">
+        <div className="faq-heading">
+          <span className="section-eyebrow">A few good questions</span>
+          <h2 className="section-title">Clear answers, <span>no guesswork.</span></h2>
         </div>
-      </section>
-    </>
+        <div className="faq-accordion-wrapper">
+          {questions.map(([question, answer], index) => {
+            const isOpen = openIndex === index;
+            const answerId = `faq-answer-${index}`;
+            return (
+              <article className={`faq-item${isOpen ? " active" : ""}`} key={question}>
+                <h3>
+                  <button className="faq-question" type="button" aria-expanded={isOpen} aria-controls={answerId} onClick={() => setOpenIndex(isOpen ? -1 : index)}>
+                    <span>{question}</span>
+                    <span className="faq-icon" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+                  </button>
+                </h3>
+                {isOpen && <div className="faq-answer" id={answerId}><p>{answer}</p></div>}
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

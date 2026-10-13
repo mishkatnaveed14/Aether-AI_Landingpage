@@ -1,138 +1,92 @@
+import { useState } from "react";
+
+const commands = {
+  npm: "npx aether-ai@latest init",
+  yarn: "yarn dlx aether-ai@latest init",
+  pnpm: "pnpm dlx aether-ai@latest init",
+};
+
 export default function Hero() {
+  const [packageManager, setPackageManager] = useState("npm");
+  const [copied, setCopied] = useState(false);
+
+  async function copyCommand() {
+    try {
+      await navigator.clipboard.writeText(commands[packageManager]);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  }
+
   return (
     <>
-      <section class="hero-section">
-        <div class="hero-container">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Ship AI Features <br />
-              <span>10x Faster.</span>
-            </h1>
-            <p class="hero-description">
-              The unified platform for developers to build, deploy, and scale AI
-              models without the infrastructure headache.
+      <section className="hero-section" id="home">
+        <div className="hero-container">
+          <div className="hero-content">
+            <span className="hero-kicker"><span className="kicker-dot" /> AI infrastructure, minus the overhead</span>
+            <h1 className="hero-title">Ship AI features <span>10× faster.</span></h1>
+            <p className="hero-description">
+              One calm, reliable platform to build, deploy, and scale AI products. Spend less time wiring infrastructure and more time shipping what matters.
             </p>
-            <div class="hero-buttons">
-              <a href="#" class="btn-primary">
-                Start Free Trial
-              </a>
-              <a href="#" class="btn-secondary">
-                View Documentation
-              </a>
+            <div className="hero-buttons">
+              <a href="#pricing" className="btn-primary">Start building <span aria-hidden="true">↗</span></a>
+              <a href="#features" className="btn-secondary">Explore the platform</a>
             </div>
+            <div className="hero-proof"><span aria-hidden="true">✦ ✦ ✦ ✦ ✦</span> Built for teams who ship</div>
           </div>
 
-          <div class="hero-graphic">
-            <div class="terminal-window">
-              <div class="terminal-tabs">
-                <span class="tab active">npm</span>
-                <span class="tab">yarn</span>
-                <span class="tab">pnpm</span>
+          <div className="hero-graphic" aria-label="Aether AI quick-start command">
+            <div className="terminal-window">
+              <div className="terminal-topbar">
+                <span className="terminal-lights"><i /><i /><i /></span>
+                <span>quickstart / terminal</span>
+                <span className="terminal-ready">● ready</span>
               </div>
-              <div class="terminal-body">
-                <div class="command-line">
-                  <code>npx aether-ai@latest init</code>
-                  <button class="copy-btn" title="Copy code">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <rect
-                        x="9"
-                        y="9"
-                        width="13"
-                        height="13"
-                        rx="2"
-                        ry="2"
-                      ></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
+              <div className="terminal-tabs" role="tablist" aria-label="Package manager">
+                {Object.keys(commands).map((manager) => (
+                  <button
+                    className={`tab${packageManager === manager ? " active" : ""}`}
+                    key={manager}
+                    type="button"
+                    role="tab"
+                    aria-selected={packageManager === manager}
+                    onClick={() => setPackageManager(manager)}
+                  >{manager}</button>
+                ))}
+              </div>
+              <div className="terminal-body">
+                <div className="terminal-caption">Initialize your workspace</div>
+                <div className="command-line">
+                  <code><span>$</span> {commands[packageManager]}</code>
+                  <button className="copy-btn" type="button" title="Copy command" aria-label="Copy command" onClick={copyCommand}>
+                    {copied ? "✓" : "▢"}
                   </button>
                 </div>
-                <div class="copied-badge">Copied!</div>
+                <div className={`copied-badge${copied ? " visible" : ""}`} role="status">Copied to clipboard</div>
               </div>
-              <div class="terminal-footer-icon">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-              </div>
+              <div className="terminal-output"><span>✓</span> Workspace configured <span>·</span> 3.2s</div>
             </div>
-            <div class="terminal-stand-neck"></div>
-            <div class="terminal-stand-base"></div>
+            <div className="terminal-stand-neck" />
+            <div className="terminal-stand-base" />
           </div>
         </div>
-        <div class="hero-grid-overlay"></div>
+        <div className="hero-grid-overlay" />
       </section>
-      {/* <section class="marquee-section">
-        <div class="marquee-container">
-          <span class="ticker-label">Trusted By Industry Leaders</span>
-          <div class="marquee-wrapper">
-            <div class="marquee-track">
-              <div class="marquee-item">
-                <span class="brand-icon">▲</span> Vercel
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🐙</span> GitHub
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">💬</span> Slack
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🐳</span> Docker
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">⚡</span> Supabase
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🛡️</span> Cloudflare
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">▲</span> Vercel
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🐙</span> GitHub
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">💬</span> Slack
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🐳</span> Docker
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">⚡</span> Supabase
-              </div>
-              <div class="marquee-item">
-                <span class="brand-icon">🛡️</span> Cloudflare
-              </div>
-            </div>
+
+      <section className="cs-marquee-section" aria-label="Integrations">
+        <div className="cs-marquee-container">
+          <span className="cs-ticker-tag">Fits your stack</span>
+          <div className="cs-marquee-track">
+            <span className="cs-badge-item">Vercel</span>
+            <span className="cs-badge-item">GitHub</span>
+            <span className="cs-badge-item">Slack</span>
+            <span className="cs-badge-item">Docker</span>
+            <span className="cs-badge-item">Supabase</span>
           </div>
         </div>
-      </section> */}
-      <section class="cs-marquee-section">
-      <div class="cs-marquee-container">
-        <span class="cs-ticker-tag">Trusted Learning Partners</span>
-        <div class="cs-marquee-track">
-          <div class="cs-badge-item">🚀 Vercel</div>
-          <div class="cs-badge-item">💡 GitHub</div>
-          <div class="cs-badge-item">⚡ Slack</div>
-          <div class="cs-badge-item">🐳 Docker</div>
-          <div class="cs-badge-item">✨ Supabase</div>
-        </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
