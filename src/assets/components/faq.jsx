@@ -1,11 +1,36 @@
 import { useState } from "react";
 
 const questions = [
-  { id: "connect", question: "How do I connect AetherAI to my existing stack?", answer: "Use the SDK or REST API alongside your current services. You can start with one model endpoint and move workloads over without changing your application architecture." },
-  { id: "models", question: "Which models can I use?", answer: "AetherAI supports leading hosted models and open-weight models, including GPT-4-class, Llama, and Mistral options. Availability depends on your selected plan and region." },
-  { id: "plans", question: "Can I change plans at any time?", answer: "Yes. Upgrade or downgrade from your workspace whenever your usage changes. Plan changes take effect on your next billing cycle." },
-  { id: "security", question: "How is my data protected?", answer: "Requests are encrypted in transit, and workspace access can be managed by role. Review your organization's security requirements before sending sensitive data." },
-  { id: "start", question: "How quickly can I get started?", answer: "Most teams can create a workspace in a few minutes. Run the quick-start command above, add your API key, and make your first request." },
+  {
+    id: "connect",
+    question: "How do I connect AetherAI to my existing stack?",
+    answer:
+      "Use the SDK or REST API alongside your current services. You can start with one model endpoint and move workloads over without changing your application architecture.",
+  },
+  {
+    id: "models",
+    question: "Which models can I use?",
+    answer:
+      "AetherAI supports leading hosted models and open-weight models, including GPT-4-class, Llama, and Mistral options. Availability depends on your selected plan and region.",
+  },
+  {
+    id: "plans",
+    question: "Can I change plans at any time?",
+    answer:
+      "Yes. Upgrade or downgrade from your workspace whenever your usage changes. Plan changes take effect on your next billing cycle.",
+  },
+  {
+    id: "security",
+    question: "How is my data protected?",
+    answer:
+      "Requests are encrypted in transit, and workspace access can be managed by role. Review your organization's security requirements before sending sensitive data.",
+  },
+  {
+    id: "start",
+    question: "How quickly can I get started?",
+    answer:
+      "Most teams can create a workspace in a few minutes. Run the quick-start command above, add your API key, and make your first request.",
+  },
 ];
 
 export default function Faq() {
@@ -23,11 +48,13 @@ export default function Faq() {
     const buttons = event.currentTarget
       .closest(".faq-accordion-wrapper")
       .querySelectorAll(".faq-question");
-    const nextIndex = event.key === "Home"
-      ? 0
-      : event.key === "End"
-        ? buttons.length - 1
-        : (index + (event.key === "ArrowDown" ? 1 : -1) + buttons.length) % buttons.length;
+    const nextIndex =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? buttons.length - 1
+          : (index + (event.key === "ArrowDown" ? 1 : -1) + buttons.length) %
+            buttons.length;
 
     event.preventDefault();
     buttons[nextIndex]?.focus();
@@ -41,10 +68,14 @@ export default function Faq() {
           <h2 className="section-title">
             Clear answers, <span>no guesswork.</span>
           </h2>
-          <p className="faq-intro">Find a quick answer about getting started, plans, or security.</p>
+          <p className="faq-intro">
+            Find a quick answer about getting started, plans, or security.
+          </p>
         </div>
         <label className="faq-search-wrap">
-          <span className="faq-search-icon" aria-hidden="true">⌕</span>
+          <span className="faq-search-icon" aria-hidden="true">
+            ⌕
+          </span>
           <input
             type="search"
             className="faq-search"
@@ -54,11 +85,19 @@ export default function Faq() {
             onChange={(event) => setSearch(event.target.value)}
           />
           {search && (
-            <button type="button" className="faq-search-clear" aria-label="Clear search" onClick={() => setSearch("")}>×</button>
+            <button
+              type="button"
+              className="faq-search-clear"
+              aria-label="Clear search"
+              onClick={() => setSearch("")}
+            >
+              ×
+            </button>
           )}
         </label>
         <p className="faq-result-count" aria-live="polite">
-          {filteredQuestions.length} {filteredQuestions.length === 1 ? "answer" : "answers"}
+          {filteredQuestions.length}{" "}
+          {filteredQuestions.length === 1 ? "answer" : "answers"}
         </p>
         <div className="faq-accordion-wrapper">
           {filteredQuestions.map(({ id, question, answer }, index) => {
@@ -84,7 +123,12 @@ export default function Faq() {
                     </span>
                   </button>
                 </h3>
-                <div className="faq-answer" id={answerId} aria-hidden={!isOpen} inert={!isOpen}>
+                <div
+                  className="faq-answer"
+                  id={answerId}
+                  aria-hidden={!isOpen}
+                  inert={!isOpen}
+                >
                   <div className="faq-answer-inner">
                     <p>{answer}</p>
                   </div>
@@ -93,7 +137,9 @@ export default function Faq() {
             );
           })}
           {filteredQuestions.length === 0 && (
-            <p className="faq-empty" role="status">No matching answers. Try a different search.</p>
+            <p className="faq-empty" role="status">
+              No matching answers. Try a different search.
+            </p>
           )}
         </div>
       </div>
