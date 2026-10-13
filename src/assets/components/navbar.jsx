@@ -106,6 +106,7 @@ export default function Navbar() {
         className={`mobile-drawer${menuOpen ? " active" : ""}`}
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
         <div className="drawer-header">
           <a className="navbar-logo" href="#home" onClick={closeMenu}>

@@ -383,7 +383,7 @@ input:focus-visible {
     margin: 24px 0 20px;
     max-width: 620px;
     color: var(--ink);
-        font-size: 5rem;
+    font-size: 5rem;
     line-height: .99;
     letter-spacing: 0;
     font-weight: 800;
@@ -548,7 +548,7 @@ input:focus-visible {
     overflow-wrap: anywhere;
     color: #d9e8d0;
     font-family: "DM Mono", monospace;
-        font-size: .78rem;
+    font-size: .78rem;
 }
 
 .command-line code>span {
@@ -688,7 +688,7 @@ input:focus-visible {
 .section-title {
     margin: 13px 0 12px;
     color: var(--ink);
-        font-size: 3rem;
+    font-size: 3rem;
     line-height: 1.12;
     letter-spacing: 0;
     font-weight: 800;
@@ -1415,7 +1415,7 @@ input:focus-visible {
 
     .hero-title {
         margin-top: 20px;
-            font-size: 3.25rem;
+        font-size: 3.25rem;
     }
 
     .hero-description {
