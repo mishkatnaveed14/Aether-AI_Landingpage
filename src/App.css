@@ -1708,7 +1708,7 @@ input:focus-visible {
 
 .footer-index-symbol,
 .footer-main-copy h2 em,
-.footer-logo > span:last-child {
+.footer-logo>span:last-child {
     color: var(--coral);
 }
 
@@ -1740,7 +1740,7 @@ input:focus-visible {
     color: var(--footer-ink);
 }
 
-.footer-newsletter-col > p:not(.footer-note-number, .newsletter-message, .newsletter-note),
+.footer-newsletter-col>p:not(.footer-note-number, .newsletter-message, .newsletter-note),
 .footer-desc,
 .footer-links-col h2 {
     color: var(--footer-muted);
