@@ -54,21 +54,31 @@ export default function Navbar() {
       <header className="navbar">
         <div className="navbar-container">
           <a className="navbar-logo" href="#home" onClick={closeMenu}>
-            <span className="logo-icon" aria-hidden="true">✳</span>
-            <span className="logo-text">Aether<span>AI</span></span>
+            <span className="logo-icon" aria-hidden="true">
+              ✳
+            </span>
+            <span className="logo-text">
+              Aether<span>AI</span>
+            </span>
           </a>
 
           <nav aria-label="Main navigation">
             <ul className="navbar-links">
               {links.map(([label, href]) => (
-                <li key={href}><a className="nav-link" href={href}>{label}</a></li>
+                <li key={href}>
+                  <a className="nav-link" href={href}>
+                    {label}
+                  </a>
+                </li>
               ))}
             </ul>
           </nav>
 
           <div className="navbar-actions">
             <ThemeToggle darkMode={darkMode} onChange={setDarkMode} />
-            <a className="btn-get-started" href="#pricing">Start building <span aria-hidden="true">↗</span></a>
+            <a className="btn-get-started" href="#pricing">
+              Start building <span aria-hidden="true">↗</span>
+            </a>
           </div>
 
           <button
@@ -79,7 +89,9 @@ export default function Navbar() {
             aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <span /><span /><span />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </header>
@@ -97,19 +109,41 @@ export default function Navbar() {
       >
         <div className="drawer-header">
           <a className="navbar-logo" href="#home" onClick={closeMenu}>
-            <span className="logo-icon" aria-hidden="true">✳</span>
-            <span className="logo-text">Aether<span>AI</span></span>
+            <span className="logo-icon" aria-hidden="true">
+              ✳
+            </span>
+            <span className="logo-text">
+              Aether<span>AI</span>
+            </span>
           </a>
-          <button className="drawer-close" type="button" aria-label="Close menu" onClick={closeMenu}>×</button>
+          <button
+            className="drawer-close"
+            type="button"
+            aria-label="Close menu"
+            onClick={closeMenu}
+          >
+            ×
+          </button>
         </div>
         <ul className="mobile-nav-links">
           {links.map(([label, href]) => (
-            <li key={href}><a className="mobile-link" href={href} onClick={closeMenu}>{label}<span aria-hidden="true">↗</span></a></li>
+            <li key={href}>
+              <a className="mobile-link" href={href} onClick={closeMenu}>
+                {label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
           ))}
         </ul>
         <div className="mobile-drawer-actions">
           <ThemeToggle darkMode={darkMode} onChange={setDarkMode} />
-          <a className="btn-get-started mobile-btn" href="#pricing" onClick={closeMenu}>Start building ↗</a>
+          <a
+            className="btn-get-started mobile-btn"
+            href="#pricing"
+            onClick={closeMenu}
+          >
+            Start building ↗
+          </a>
         </div>
       </aside>
     </>

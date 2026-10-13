@@ -25,26 +25,50 @@ export default function Hero() {
       <section className="hero-section" id="home">
         <div className="hero-container">
           <div className="hero-content">
-            <span className="hero-kicker"><span className="kicker-dot" /> AI infrastructure, minus the overhead</span>
-            <h1 className="hero-title">Ship AI features <span>10× faster.</span></h1>
+            <span className="hero-kicker">
+              <span className="kicker-dot" /> AI infrastructure, minus the
+              overhead
+            </span>
+            <h1 className="hero-title">
+              Ship AI features <span>10× faster.</span>
+            </h1>
             <p className="hero-description">
-              One calm, reliable platform to build, deploy, and scale AI products. Spend less time wiring infrastructure and more time shipping what matters.
+              One calm, reliable platform to build, deploy, and scale AI
+              products. Spend less time wiring infrastructure and more time
+              shipping what matters.
             </p>
             <div className="hero-buttons">
-              <a href="#pricing" className="btn-primary">Start building <span aria-hidden="true">↗</span></a>
-              <a href="#features" className="btn-secondary">Explore the platform</a>
+              <a href="#pricing" className="btn-primary">
+                Start building <span aria-hidden="true">↗</span>
+              </a>
+              <a href="#features" className="btn-secondary">
+                Explore the platform
+              </a>
             </div>
-            <div className="hero-proof"><span aria-hidden="true">✦ ✦ ✦ ✦ ✦</span> Built for teams who ship</div>
+            <div className="hero-proof">
+              <span aria-hidden="true">✦ ✦ ✦ ✦ ✦</span> Built for teams who ship
+            </div>
           </div>
 
-          <div className="hero-graphic" aria-label="Aether AI quick-start command">
+          <div
+            className="hero-graphic"
+            aria-label="Aether AI quick-start command"
+          >
             <div className="terminal-window">
               <div className="terminal-topbar">
-                <span className="terminal-lights"><i /><i /><i /></span>
+                <span className="terminal-lights">
+                  <i />
+                  <i />
+                  <i />
+                </span>
                 <span>quickstart / terminal</span>
                 <span className="terminal-ready">● ready</span>
               </div>
-              <div className="terminal-tabs" role="tablist" aria-label="Package manager">
+              <div
+                className="terminal-tabs"
+                role="tablist"
+                aria-label="Package manager"
+              >
                 {Object.keys(commands).map((manager) => (
                   <button
                     className={`tab${packageManager === manager ? " active" : ""}`}
@@ -53,20 +77,39 @@ export default function Hero() {
                     role="tab"
                     aria-selected={packageManager === manager}
                     onClick={() => setPackageManager(manager)}
-                  >{manager}</button>
+                  >
+                    {manager}
+                  </button>
                 ))}
               </div>
               <div className="terminal-body">
-                <div className="terminal-caption">Initialize your workspace</div>
+                <div className="terminal-caption">
+                  Initialize your workspace
+                </div>
                 <div className="command-line">
-                  <code><span>$</span> {commands[packageManager]}</code>
-                  <button className="copy-btn" type="button" title="Copy command" aria-label="Copy command" onClick={copyCommand}>
+                  <code>
+                    <span>$</span> {commands[packageManager]}
+                  </code>
+                  <button
+                    className="copy-btn"
+                    type="button"
+                    title="Copy command"
+                    aria-label="Copy command"
+                    onClick={copyCommand}
+                  >
                     {copied ? "✓" : "▢"}
                   </button>
                 </div>
-                <div className={`copied-badge${copied ? " visible" : ""}`} role="status">Copied to clipboard</div>
+                <div
+                  className={`copied-badge${copied ? " visible" : ""}`}
+                  role="status"
+                >
+                  Copied to clipboard
+                </div>
               </div>
-              <div className="terminal-output"><span>✓</span> Workspace configured <span>·</span> 3.2s</div>
+              <div className="terminal-output">
+                <span>✓</span> Workspace configured <span>·</span> 3.2s
+              </div>
             </div>
             <div className="terminal-stand-neck" />
             <div className="terminal-stand-base" />
