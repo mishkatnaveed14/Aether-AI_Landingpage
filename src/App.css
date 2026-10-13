@@ -1213,7 +1213,6 @@ input:focus-visible {
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg);
     background: var(--coral);
     color: #fffdf9;
 }

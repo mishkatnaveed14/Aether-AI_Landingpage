@@ -119,7 +119,7 @@ export default function Faq() {
                   >
                     <span>{question}</span>
                     <span className="faq-icon" aria-hidden="true">
-                      +
+                      {isOpen ? "−" : "+"}
                     </span>
                   </button>
                 </h3>
